@@ -46,6 +46,7 @@ pairwise_pmi <- function(tbl, item, feature, sort = FALSE) {
 #' @export
 pairwise_pmi_ <- function(tbl, item, feature, sort = FALSE) {
   f <- function(m) {
+    m = as.matrix(m)
     row_sums <- rowSums(m) / sum(m)
 
     ret <- m %*% t(m)
