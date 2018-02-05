@@ -34,6 +34,7 @@
 #' pairwise_pmi(dat, letter, group, sort = TRUE)
 #'
 #' @export
+
 pairwise_pmi <- function(tbl, item, feature, sort = FALSE) {
   pairwise_pmi_(tbl,
                 col_name(substitute(item)),
@@ -45,6 +46,7 @@ pairwise_pmi <- function(tbl, item, feature, sort = FALSE) {
 #' @rdname pairwise_pmi
 #' @export
 pairwise_pmi_ <- function(tbl, item, feature, sort = FALSE) {
+  library(dplyr)
   f <- function(m) {
     m = as.matrix(m)
     row_sums <- rowSums(m) / sum(m)
